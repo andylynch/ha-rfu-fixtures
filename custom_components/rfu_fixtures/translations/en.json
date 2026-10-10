@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "England Rugby team",
+        "description": "Paste the England Rugby 'fixtures and results' page URL for the team (it contains team=, competition=, division= and season=).",
+        "data": {
+          "url": "Fixtures & results page URL",
+          "fetch_group": "Also read the other teams' pages (needed for group results and Elo)"
+        }
+      }
+    },
+    "error": {
+      "bad_url": "That URL is missing team, competition, division or season.",
+      "cannot_connect": "Couldn't load the page from englandrugby.com.",
+      "no_data": "The page loaded but had no table or fixtures."
+    },
+    "abort": {
+      "already_configured": "This team and division is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "fetch_group": "Also read the other teams' pages (needed for group results and Elo)"
+        }
+      }
+    }
+  }
+}

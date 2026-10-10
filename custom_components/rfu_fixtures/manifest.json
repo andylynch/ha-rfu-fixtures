@@ -1,0 +1,16 @@
+{
+  "domain": "rfu_fixtures",
+  "name": "RFU Fixtures & Results",
+  "codeowners": [
+    "@andylynch"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/andylynch/ha-rfu-fixtures",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/andylynch/ha-rfu-fixtures/issues",
+  "requirements": [
+    "beautifulsoup4>=4.12"
+  ],
+  "version": "0.1.0"
+}
