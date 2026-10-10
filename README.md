@@ -52,7 +52,7 @@ action:
 
 ## Polling and fair use
 
-Every 3 hours, and every 30 minutes on Sunday 12:00-21:00 when youth results are usually entered. With group fetching on that's 6 page loads per refresh, spaced 3 seconds apart. The integration identifies itself honestly in its User-Agent. Please keep it gentle and check englandrugby.com's terms of use; if the site blocks it, the sensors go unavailable rather than retrying hard.
+Every 3 hours, and every 30 minutes on Sunday 12:00-21:00 when youth results are usually entered. With group fetching on that's 6 page loads per refresh, spaced 3 seconds apart. Requests use a Mobile Safari User-Agent. Please keep it gentle and check englandrugby.com's terms of use; if the site blocks it, the sensors go unavailable rather than retrying hard.
 
 ## Elo
 
