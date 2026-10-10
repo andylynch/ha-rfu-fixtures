@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 from typing import Any
 
 import aiohttp
@@ -24,6 +25,8 @@ from .const import (
 from .coordinator import fetch_html
 from .parser import build_url, parse_page, parse_search_url
 
+_LOGGER = logging.getLogger(__name__)
+
 
 class RfuConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 1
@@ -42,7 +45,8 @@ class RfuConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 try:
                     html = await fetch_html(async_get_clientsession(self.hass), url)
                     page = await self.hass.async_add_executor_job(parse_page, html, ids["team"])
-                except (aiohttp.ClientError, asyncio.TimeoutError, UpdateFailed):
+                except (aiohttp.ClientError, asyncio.TimeoutError, UpdateFailed) as err:
+                    _LOGGER.warning("Setup could not load %s: %s: %s", url, type(err).__name__, err)
                     errors["base"] = "cannot_connect"
                 else:
                     if not page.table and not page.fixtures:

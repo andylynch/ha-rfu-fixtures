@@ -43,7 +43,11 @@ async def fetch_html(session: aiohttp.ClientSession, url: str) -> str:
         timeout=aiohttp.ClientTimeout(total=REQUEST_TIMEOUT),
     ) as resp:
         if resp.status != 200:
-            raise UpdateFailed(f"englandrugby.com returned HTTP {resp.status} for {url}")
+            body = (await resp.text(errors="replace"))[:300].replace("\n", " ")
+            raise UpdateFailed(
+                f"englandrugby.com returned HTTP {resp.status} for {url} "
+                f"(server={resp.headers.get('Server')!r}, body starts {body!r})"
+            )
         return await resp.text()
 
 
